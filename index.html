@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>海的故事宣传页</title>
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.fullPage.min.js"></script>
+    <style>
+        .section{
+            position: relative;
+        }
+        .section1{
+            background-image: url("img/bg1.jpg");
+            background-size: cover;
+            transition: all 1s;
+        }
+        .section2{
+            background-image: url("img/bg2.jpg");
+            background-size: cover;
+        }
+        .section3{
+            background-image: url("img/bg3.jpg");
+            background-size: cover;
+        }
+        .section4{
+            background-image: url("img/bg4.jpg");
+            background-size: cover;
+        }
+        .section5{
+            background-image: url("img/bg5.jpg");
+            background-size: cover;
+        }
+        .a h1{
+            text-align: center;
+            font-size: 65px;
+            font-weight: 300;
+            color: #E508F0;
+            transition: all 2s;
+            transform: scale(0);
+            font-family: cursive;
+        }
+        .active .a h1{
+            transform: scale(1.2);
+            transition: all 2s;
+        }
+        .b{
+            width: 1020px;
+            height: 350px;
+            margin: 30px auto;
+        }
+        .b .b0{
+            width: 320px;
+            height: 350px;
+            margin-left: 10px;
+            margin-right: 10px;
+            float: left;
+        }
+        .b .b0 .tp{
+            transform: translateY(500px);
+            box-shadow: 3px -3px 3px 3px rgba(0,0,0,0.1);
+        }
+        .active .b .tp{
+            transform: translateY(1px);
+            transition: all 2s;
+        }
+        .b .wz{
+            background: #fff;
+            font-size: 14px;
+            color: #777;
+            padding: 10px;
+        }
+        .b .b0 .wz{
+            transform: translateX(1200px);
+        }
+        .active .b .b0 .wz{
+            transform: translateX(1px);
+            transition: all 2s;
+        }
+        .c{
+            width: 700px;
+            height: 128px;
+            margin: 30px auto;
+            opacity: 0;
+        }
+        .active .c{
+            opacity: 1;
+            transition: all 4s;
+        }
+        .c .c1{
+            width: 170px;
+            height: 128px;
+            float: left;
+        }
+        .c .c1 img{
+            width: 100%;
+            height: 100%;
+        }
+        .c .c1 img:hover{
+            transform: scale(1.1);
+        }
+        .c .c2{
+            width: 530px;
+            height: 100%;
+            background: #fff;
+            float: left;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .c .c2:hover{
+            background: #CB5977;
+        }
+        .c .c2:hover h3{
+            color: #fff;
+        }
+        .c .c2:hover .zzz{
+            color: orange;
+        }
+        .c .c2:hover .zzy{
+            color: blue;
+        }
+        .c2 h3{
+            font-size: 17px;
+            color: #CB5977;
+            font-weight: 300;
+            margin-bottom: 6px;
+        }
+        .c2 .zzz{
+            width: 100%;
+            height: 40px;
+            font-size: 13px;
+            color: #888;
+        }
+        .c2 .zzy{
+            width: 100%;
+            height: 40px;
+            font-size: 13px;
+            color: #888;
+            line-height: 40px;
+        }
+        .c2 .zzy span{
+            display: block;
+            float: right;
+            margin-right: 25px;
+        }
+        .d{
+            width: 1100px;
+            height: 262px;
+            margin: 0 auto;
+        }
+        .d li{
+            width: 490px;
+            height: 100%;
+            float: left;
+        }
+        .d .za{
+            width: 120px;
+            height: 100%;
+            float: left;
+            font-size: 55px;
+            color: #fff;
+            line-height: 131px;
+            text-align: center;
+            transform: scale(0);
+        }
+        .active .d .za{
+            transform: scale(1);
+            transition: all 2s;
+        }
+        .d li img{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .active .d li img{
+            transform: rotate(360deg);
+            transition: all 2s;
+        }
+        .e{
+            width: 1000px;
+            height: 440px;
+            margin: 0 auto;
+        }
+        .e .left{
+            width: 660px;
+            height: 100%;
+            float: left;
+        }
+        .e .left h2{
+            color: orange;
+            transform: scale(0);
+        }
+        .active .e .left h2{
+            transform: scale(1);
+            transition: all 2s;
+        }
+        .e .left img{
+            transform: scale(0);
+        }
+        .active .e .left img{
+            transform: scale(1);
+            transition: all 2s;
+        }
+        .e .left p{
+            width: 634px;
+            background: rgba(0,0,0,0.3);
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 14px;
+            transform: translateX(-830px);
+        }
+        .active .e .left p{
+            transform: translateX(1px);
+            transition: all 2s;
+        }
+        .e .right{
+            float: right;
+            margin-top: 30px;
+        }
+        .e .right img{
+            opacity: 0;
+        }
+        .active .e .right img{
+            opacity: 1;
+            transition: all 5s;
+        }
+        .f{
+            width: 1200px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .f li{
+            width: 200px;
+            height: 100%;
+            float: left;
+            font-size: 120px;
+            color: #fff;
+        }
+        .f .f1{
+            transform: scale(0);
+        }
+        .f .f2{
+            transform: rotate(0);
+        }
+        .active .f .f2{
+            transform: rotate(360deg);
+            transition: all 2s;
+        }
+        .active .f .f1{
+            transform: scale(1);
+            transition: all 2s;
+        }
+    </style>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+</style>
+<body>
+    <div id="full">
+        <div class="section section1">
+            <div class="a">
+                <h1><span>❤</span>海的故事</h1>
+            </div>
+            <div class="b">
+                <div class="b0">
+                    <img src="img/b1.jpg" alt="" class="tp">
+                    <div class="wz">
+                        深入墨尔本、悉尼，领略城市风光；走入亚拉河谷，直升
+                        机俯瞰大洋路、璀璨大堡礁，与憨态考拉共进早餐，骑马巡游
+                        蓝山国家公园，感受绝色自然；丰富特色活动安排，感受别样澳大利亚。
+                    </div>
+                </div>
+                <div class="b0">
+                    <img src="img/b2.jpg" alt="" class="tp">
+                    <div class="wz">
+                        从奥克兰出发一路向南，亲临新西兰最美风景，偶遇可爱萌物，
+                        畅享美食美酒，看遍南北双岛万千风情
+                    </div>
+                </div>
+                <div class="b0">
+                    <img src="img/b3.jpg" alt="" class="tp">
+                    <div class="wz">
+                        精选独家行程，亲历个性体验，多重人文交流，荟集奢华酒店，深
+                        度领略传奇印度的积淀与勃发
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section2">
+            <div class="c">
+                <div class="c1">
+                    <img src="img/key3_1932_inspire.jpg" alt="">
+                </div>
+                <div class="c2">
+                    <h3>
+                        你在国内穿秋裤，我飞泰国25度，看花、戏水、春节都不误
+                    </h3>
+                    <div class="zzz">
+                        2月的泰国气候宜人，不冷也不晒
+                    </div>
+                    <div class="zzy">
+                        5天前
+                        <span>by赞品</span>
+                    </div>
+                </div>
+            </div>
+            <div class="c">
+                <div class="c1">
+                    <img src="img/key3_1931_inspire.jpg" alt="">
+                </div>
+                <div class="c2">
+                    <h3>
+                        怪我见识太浅，竟认不出这些小怪物这么好吃。。。！
+                    </h3>
+                    <div class="zzz">
+                        事情是这样的，最近一位INS博主引起了小赞注意，这位满脸络腮胡子的欧巴专注为蔬果拍大片，每张图都看的人赏心悦目
+                    </div>
+                    <div class="zzy">
+                        5天前
+                        <span>by小R</span>
+                    </div>
+                </div>
+            </div>
+            <div class="c">
+                <div class="c1">
+                    <img src="img/key3_1746_inspire.jpg" alt="">
+                </div>
+                <div class="c2">
+                    <h3>
+                        火人节2017｜美好的东西都不是被计划出来的，enjoy your burn!
+                    </h3>
+                    <div class="zzz">
+                        一无所有的同义词，是一切皆有可能
+                    </div>
+                    <div class="zzy">
+                        5天前
+                        <span>by赞品</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section section3">
+            <ul class="d">
+                <li>
+                    <img src="img/4021cd99-5bce-4a6a-9034-879adaa988f3.png" alt="">
+                </li>
+                <div class="za">海的故事</div>
+                <li>
+                    <img src="img/8b87a81e-3ace-44e5-a759-c220468b4b81.png" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="section section4">
+            <div class="e">
+                <div class="left">
+                    <h2>六善酒店度假村集团，带你领略世界各地的自然之美</h2>
+                    <p>六善酒店集团，原名第六感酒店集团（Six Senses Resorts & Spas）
+                        成立于1995年，旗下拥有Soneva，Six Senses Hideaway，Six Senses
+                        Latitude，Evason等品牌的多个度假村，以及Six Senses Spas和Six
+                        Senses Destination Spas等专业SPA会所。
+                    </p>
+                    <img src="img/1_Six-senses-samui.jpg" alt="">
+                    <p>苏梅岛六善酒店的设计时尚却又不失低调和谦逊，与原始风情
+                        的岛上风光完美地融为一体。整个度假村傍山依坡临崖面海，
+                        所有的建筑物与别墅都通过阶梯与林间小径连接，你可在各
+                        个角度看到各种不同的壮丽景色。别墅中开放式的浴室使得室内
+                        更加明亮，在房内几乎任何有窗的位置都能眺望到海景。大多别墅
+                        均设有私人泳池，设计巧妙，你可感到游泳池与海水相融毫无界线，蕴味无穷。
+                    </p>
+                </div>
+                <div class="right">
+                    <img src="img/dc8ef4738f17ebfc132d5c73f7c918ad.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="section section5">
+            <ul class="f">
+                <li style="color: orange" class="f1">欢</li>
+                <li style="color: red" class="f2">迎</li>
+                <li style="color: blue" class="f1">加</li>
+                <li style="color: deeppink" class="f2">入</li>
+                <li style="color: palevioletred" class="f1">我</li>
+                <li style="color: aqua" class="f2">们</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        $('#full').fullpage();
+        let t;
+        t=setInterval(function () {
+            $('.a h1').find('span').css('color',randomColor());
+            $('.d').find('.za').css('color',randomColor());
+        },100);
+        function randomColor(){
+            let r=Math.floor(Math.random()*256);
+            let g=Math.floor(Math.random()*256);
+            let b=Math.floor(Math.random()*256);
+            return `rgb(${r},${g},${b})`;
+        }
+        randomColor();
+    })
+</script>
